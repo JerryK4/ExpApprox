@@ -7,14 +7,11 @@ entity microprocessor is
         clk         : in  std_logic;
         rst         : in  std_logic;
         start       : in  std_logic;
-        
-        -- Giao ti?p v?i Unified Memory
         mem_data_in : in  std_logic_vector(15 downto 0); 
         mem_addr    : out std_logic_vector(5 downto 0);  
         mem_data_out: out std_logic_vector(15 downto 0); 
         Mre         : out std_logic;
-        Mwe         : out std_logic;
-        
+        Mwe         : out std_logic;  
         done        : out std_logic
     );
 end microprocessor;
@@ -127,4 +124,5 @@ begin
         );
 
 end structural;
+
 
