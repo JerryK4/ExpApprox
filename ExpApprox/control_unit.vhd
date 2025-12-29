@@ -9,7 +9,6 @@ entity control_unit is
         rs       : in  std_logic;
         cal      : in  std_logic;
 
-        -- Tín hi?u ?i?u khi?n Datapath (chuy?n ti?p t? controller)
         x_sel    : out std_logic_vector(1 downto 0);
         y_sel    : out std_logic_vector(1 downto 0);
         z_sel    : out std_logic_vector(1 downto 0);
@@ -19,20 +18,15 @@ entity control_unit is
         z_en     : out std_logic;
         i_en     : out std_logic;
 
-        -- Tín hi?u ?i?u khi?n Memory
         Mre      : out std_logic;
         Mwe      : out std_logic;
-        address  : out std_logic_vector(5 downto 0); -- ??a ch? xu?t ra b? nh?
+        address  : out std_logic_vector(5 downto 0); 
         
         done     : out std_logic
     );
 end control_unit;
 
 architecture structural of control_unit is
-
-    --------------------------------------------------------------------
-    -- KHAI BÁO COMPONENT
-    --------------------------------------------------------------------
     component controller is
         port (
             start, rst, clk, rs, cal : in std_logic;
@@ -65,9 +59,6 @@ architecture structural of control_unit is
         );
     end component;
 
-    --------------------------------------------------------------------
-    -- TÍN HI?U N?I B?
-    --------------------------------------------------------------------
     signal s_addr_sel : std_logic;
     signal s_IIRinc   : std_logic;
     signal s_OIRinc   : std_logic;
@@ -75,12 +66,6 @@ architecture structural of control_unit is
     signal s_OIR_out  : std_logic_vector(5 downto 0);
 
 begin
-
-    --------------------------------------------------------------------
-    -- K?T N?I CÁC THÀNH PH?N
-    --------------------------------------------------------------------
-
-    -- 1. B? ?i?u khi?n FSM (S0-S7)
     U_CTRL: controller
         port map (
             clk      => clk,
@@ -104,7 +89,6 @@ begin
             done     => done
         );
 
-    -- 2. B? ??m ch? s? ??c (Input Index Register)
     U_IIR: IIR
         port map (
             clk    => clk,
@@ -113,7 +97,6 @@ begin
             Q      => s_IIR_out
         );
 
-    -- 3. B? ??m ch? s? Ghi (Output Index Register)
     U_OIR: OIR
         port map (
             clk    => clk,
@@ -122,7 +105,6 @@ begin
             Q      => s_OIR_out
         );
 
-    -- 4. B? ch?n ??a ch? (Mux Address)
     U_MUX_ADDR: muxAddress
         port map (
             sel => s_addr_sel,
@@ -132,3 +114,4 @@ begin
         );
 
 end structural;
+
