@@ -33,10 +33,7 @@ architecture fsm of controller is
     type state_type is (S0, S1, S2, S3, S4, S5, S6, S7, S8, S9);
     signal state : state_type;
 begin
-
-    --------------------------------------------------------------------
     -- STATE REGISTER
-    --------------------------------------------------------------------
     process(clk, rst)
     begin
         if rst = '1' then
@@ -96,9 +93,7 @@ begin
         end if;
     end process;
 
-    --------------------------------------------------------------------
     -- SELECT SIGNALS
-    --------------------------------------------------------------------
     x_sel <= "00" when state = S3 else
              "01" when state = S6 else
              "10" when state = S7 else        -- Z<0  update
@@ -116,17 +111,13 @@ begin
 
     i_sel <= '0' when state = S3 else '1' when state = S6 or state = S7;
 
-    --------------------------------------------------------------------
     -- ENABLE SIGNALS
-    --------------------------------------------------------------------
     x_en <= '1' when state = S3 or state = S6 or state = S7 else '0';
     y_en <= '1' when state = S3 or state = S6 or state = S7 else '0';
     z_en <= '1' when state = S3 or state = S6 or state = S7 else '0';
     i_en <= '1' when state = S3 or state = S6 or state = S7 else '0';
 
-    --------------------------------------------------------------------
     -- MEMORY SIGNALS
-    --------------------------------------------------------------------
     Mre <= '1' when state = S2  else '0';
     
     addr_sel <= '1' when state = S8 else '0';
@@ -136,8 +127,8 @@ begin
     Mwe <= '1' when state = S8 else '0';
     
     OIRinc <= '1' when state = S8 else '0';
-    --------------------------------------------------------------------
+				 
     -- DONE SIGNAL
-    --------------------------------------------------------------------
     done   <= '1' when state = S8 else '0';
 end fsm;
+
