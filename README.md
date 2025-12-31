@@ -56,30 +56,35 @@ Dưới đây là logic lặp của thuật toán CORDIC được thực hiện 
 ---
 
 ## 🧩 **Datapath & FSMD & FSM Minh họa**
-
+💻 **Datapath**
+![Datapath](./Image/datapath.png)
 📘 **FSMD Diagram**  
 ![FSMD](./Image/FSMD.png)
 
 📗 **FSM Diagram**  
-![FSM](./Image/FSM.png)
+![FSM](./Image/fsm.png)
 
 ---
 
 ## 🧱 **Sơ đồ khối tổng thể / System Block Diagram**
 
-![SDK1](./Image/sdk1.png)
-![SDK2](./Image/sdk2.png)
+![SDK1](./Image/TQ2.png)
+![SDK2](./Image/TQ3.png)
 
 📈 **Toàn bộ hệ thống tính toán**  
-![SDTQ](./Image/sdtq.png)
+![SDTQ](./Image/top.png)
 
 ---
 
 ## 🧪 **Kết quả Mô phỏng (Simulation Results)**
 
 📊 **Dạng sóng mô phỏng:**  
-![Simulation Result](./Image/result.png)
-
+![Simulation Result](./Image/mp1.png)
+![Simulation Result](./Image/mp2.png)
+![Simulation Result](./Image/mp3.png)
+![Simulation Result](./Image/mp4.png)
+![Simulation Result](./Image/mp5.png)
+![Simulation Result](./Image/KQ.png)
 ---
 
 ## ▶️ **Cách chạy mô phỏng (Simulation Steps)**
