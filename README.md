@@ -42,7 +42,7 @@ Khối ExpApprox có giao diện ghép nối với CPU để điều khiển qu�
 | `Reset` | In | 1 bit | Đặt lại hệ thống về trạng thái ban đầu  |
 | `Done` | Out | 1 bit | Báo hiệu hoàn tất quá trình tính toán |
 
-![Giao diện ghép nối I/O](./Image/io_interface.png)
+![Giao diện ghép nối I/O](./Image/TQ.png)
 Hình 2: Giao diện ghép nối I/O giữa CPU và Memory
 
 ---
